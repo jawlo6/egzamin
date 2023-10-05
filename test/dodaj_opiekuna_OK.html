@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pl">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Panel administracyjny</title>
+</head>
+
+<body>
+
+<p>Panel administracyjny</p>
+
+<?php 
+
+include( "baza.php" );
+
+$query = "SELECT nazwa FROM nauczyciel WHERE nazwa = '" . $_POST['nazwa'] . "'";
+//echo $query;
+
+$result = pg_exec( $db_handle, $query );
+//echo "wynik wyszukiwania  " . $result ;
+
+$ile = pg_numrows( $result );
+
+
+if( $ile  )
+    echo "Uzytkownik <b>". $_POST[ 'nazwa' ] . "</b> już istnieje i nie mozna takie utowrzyc"; 
+else{
+   echo "dodajemy nowego uzytkownika";
+  
+ }
+   
+   //     echo pg_errormessage( $db_handle );  
+/*
+if( $result ){
+   echo "<br>Zapytanie zostało wykonane<br>\n";
+
+   for( $row=0; $row < pg_numrows( $result ); $row++ ){
+       echo  $row . pg_result( $result, $row, 0) . "<br>";      
+   }
+   else{
+       echo "Blad wykonania zapytania: <br> \n";
+       echo pg_errormessage( $db_handle );  
+   }
+}
+
+//for( $row=0; $row < pg_numrows( $result ); $row++ ){
+//    echo  $row . pg_result( $result, $row, 0) . "<br>";      
+*/  
+
+//nazwa, rodzaj, haslo, ile_pomylek, zablokowany, zmiana_hasla, data_logowania, nazwisko, imie 
+//miejscowosc, ulica, nr_domu, nr_mieszkania, poczta, kod_pocztowy, telefon, e_mail 
+
+
+$query1 = "insert into opiekun(  nazwa,	rodzaj,	haslo, 	ile_pomylek, 	zablokowany, 	zmiana_hasla, 	data_logowania, 
+           nazwisko,  imie, miejscowosc,  ulica,  nr_domu, nr_mieszkania, poczta, kod_pocztowy, telefon,  e_mail )";
+ 
+$wynik1=  strcmp( $_POST['zablokowany'] , "ON" );									
+$wynik2=  strcmp( $_POST['zmiana_hasla'] , "ON" );									
+									
+if( wynik1 == 0 ) {
+    $blokada= "true"; }
+else {
+    $blokada= "false";}
+				
+if( wynik2 == 0 ) {
+    $haslo= "true"; }
+else {
+    $hasla= "false";}
+	
+//nazwa, rodzaj, haslo, ile_pomylek, zablokowany, zmiana_hasla, data_logowania, nazwisko, imie 
+//miejscowosc, ulica, nr_domu, nr_mieszkania, poczta, kod_pocztowy, telefon, e_mail 
+
+$query2 = "values( '".$_POST['nazwa'] ."','" . $_POST['rodzaj']."','" . $_POST['haslo1']."', ". $_POST['ile_pomylek'].",'" .
+                      $blokada . "','" . $haslo . "','1900-01-01','" .  $_POST['nazwisko'] . "','" . $_POST['imie'] . "', '" . 
+                      $_POST['miejscowosc'] . "','". $_POST['ulica'] . "','" . $_POST['nr_domu'] . "','" . $_POST['nr_mieszkania'] ."','" .
+					  $_POST['poczta'] . "','" . $_POST['kod_pocztowy'] . "','" . $_POST['telefon'] . "','".  $_POST['e_mail'] .  "')" ;
+					  
+echo "zapytanie1: ". $query1 . $query2 ;
+
+$result = pg_exec( $db_handle, $query1 . $query2  );
+echo "rezultat1: ". $result;
+echo pg_errormessage( $db_handle );  
+echo "<br>";
+echo "Dane zostały zapisane do bazy";
+	 
+/*
+$query1 = "insert into osoba (nazwa, id_uzytkownika, rodzaj, haslo, ile_pomylek, zablokowany, zmiana_hasla, data_logowania ) ";
+$query2 = "values ( '". $_POST['nazwa'] . "', 3," . $_POST['profil'].", 'postgres', 0, FALSE, FALSE, '2008-05-12 18:55:00+0' )";
+echo "zapytanie2: ". $query1 . $query2;
+$result = pg_exec( $db_handle, $query1 . $query2 );
+echo "rezultat2: ". $result;
+
+pg_freeresult($result);
+pg_close($db_handle);
+    */
+?>
+
+</body>
+
+</html>

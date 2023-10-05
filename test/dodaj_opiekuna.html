@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="pl">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Panel administracyjny - dodawanie opiekuna</title>
+</head>
+
+<body>
+<FORM ACTION="dodaj_opiekuna_OK.php" METHOD="POST">
+
+<p>Panel administracyjny</p>
+<p>Dopisanie nowego opiekuna</p>
+
+nazwa, rodzaj, haslo, ile_pomylek, zablokowany, zmiana_hasla, data_logowania, nazwisko, imie 
+miejscowosc, ulica, nr_domu, nr_mieszkania, poczta, kod_pocztowy, telefon, e_mail 
+    
+<table ALIGN=CENTER CELLSPACING=0 CELLPADDING=0>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=nazwa>Nazwa użytkownika: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="nazwa"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=rodzaj>rodzaj: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="rodzaj"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=haslo1>hasło: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="haslo1"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=haslo2>powtórz hasło: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="haslo2"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=nazwisko>Nazwisko: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="nazwisko"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=imie>Imię: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="imie"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=miejscowosc>miejscowość (adres): </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="miejscowosc"></td> 
+  </tr>  
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=ulica>ulica: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="ulica"></td> 
+  </tr>  
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=nr_domu>nr domu: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="nr_domu"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=nr_mieszkania>nr mieszkania: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="nr_mieszkania"></td> 
+  </tr>  
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=kod_pocztowy>kod pocztowy: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="kod_pocztowy"></td> 
+  </tr>  
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=poczta>poczta: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="poczta"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=telefon>telefon: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="telefon"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=e_mail>e-mail: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="e_mail"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=ile_pomylek>ile dopuszczalnych błędny logowań: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <INPUT TYPE="text" NAME="ile_pomylek"></td> 
+  </tr>
+  <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=zmiana_hasla>Konieczność zmiany hasła: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <input type="checkbox" name="zmiana_hasla" value="ON"></td> 
+  </tr>  
+   <tr>
+    <td ALIGN=RIGHT VALIGN=TOP><LABEL FOR=blokada>Blokada konta: </LABEL> </td>
+    <td ALIGN=LEFT  VALIGN=TOP WIDTH="10"></td>
+    <td ALIGN=LEFT  VALIGN=TOP> <input type="checkbox" name="blokada" value="ON"></td> 
+  </tr>   
+</table>
+
+<p ALIGN=CENTER><INPUT TYPE="SUBMIT" NAME="dodaj" VALUE="dodaj"></p>
+
+</body>
+
+</html>

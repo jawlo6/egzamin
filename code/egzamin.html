@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <html lang="pl-PL">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egzamin zawodowy teoretyczny</title> 
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>  
+<script>
+var question;
+function showUser(str) {
+  question=str;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getuser.php?q="+str,true);
+    console.log("getuser.php?q="+str)
+    xmlhttp.send();
+  }
+}
+
+function saveAnswer( ) {
+  str=document.forms["answer"]["radio"].value;
+  if (str == "") {
+    document.getElementById("wynik").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("wynik").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getuser.php?a="+str+"&o="+question,true);
+    console.log("getuser.php?a="+str+"&o="+question)
+    xmlhttp.send();
+  }
+}
+</script>
+</head>
+<body>
+
+<h3>Wybierz pytanie</h3>
+  <form>
+    <select name="users" onchange="showUser(this.value)">
+      <option value="">Wybierz pytanie:</option>
+      <option value="1">Pytanie 1</option>
+      <option value="2">Pytanie 2</option>
+      <option value="3">Pytanie 3</option>
+      <option value="4">Pytanie 4</option>
+      </select>
+    </form>
+    <br>
+    <div id="txtHint"><b>Tutaj pojawi się treść pytnia:</b></div>
+    
+
+
+<h3>Wybierz odpowiedź:</h3>
+  <form name="answer">  
+    <p>Odpowiedzi:</p>
+    <label>A</label><input type="radio" name="radio" value="1"><br>
+    <label>B</label><input type="radio" name="radio" value="2"><br>
+    <label>C</label><input type="radio" name="radio" value="3"><br>
+    <label>D</label><input type="radio" name="radio" value="4"><br>  
+</form>
+<button value="zapisz" onclick="saveAnswer( )">Zapisz</button>
+<p id="wynik">Tutaj jest wynik</p>
+
+</body>
+</html> 
+

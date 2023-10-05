@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="Exam_pliki/css.css" rel="stylesheet">
+
+    
+    <style>
+        .red {
+            color: red;
+            font-weight: bold;
+            border-color: red;
+        }
+
+        .greenLabel {
+            color: green;
+        }
+
+        .redLabel {
+            color: red;
+        }
+
+        #body {
+            border-top: 6px solid #2BAAB1;
+            background-color: #fff;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            -moz-box-shadow: 1px 1px 7px #ccc;
+            -webkit-box-shadow: 1px 1px 7px #ccc;
+            box-shadow: 1px 1px 7px #ccc;
+            min-height: 830px;
+        }
+
+        .p-inline p {
+            display: inline;
+            font-weight: normal !important;
+        }
+
+        .div-with-border {
+            border: black solid thin;
+            margin-bottom: 10px;
+        }
+
+        .div-with-top-margin {
+            margin-top: 10px;
+        }
+
+        .container {
+            margin-top: 0px;
+            width: 1304px;
+            position: relative;
+            height: 818px;
+        }
+
+        .row.header {
+            border-top: 1px solid lightgray;
+            margin: 4px 0;
+        }
+
+        #header {
+            padding: 13px 0px 13px;
+            text-indent: 16px;
+        }
+
+        #r div {
+            margin: 0px 5px 36px 5px;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-left: 14px;
+            display: inline;
+        }
+
+        .table-header {
+            /*margin-top: 118px;*/
+            color: #823458;
+            margin-bottom: 20px;
+        }
+
+        .div-with-border {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .btn-purple, .btn-purple:active, .btn-purple:focus, .btn-purple:hover {
+            text-indent: 0px;
+        }
+
+        p {
+            margin: inherit;
+        }
+
+        .p-inline {
+            margin-left: 10px;
+        }
+
+        #body {
+            border: none;
+            border-top: 6px solid #2BAAB1;
+        }
+
+        #logout {
+            margin-top: -20px;
+            font-size: smaller;
+            margin-right: 8px;
+            float: right;
+            clear: both;
+        }
+
+        .btn#EndExamButton {
+            width: 100%;
+            background-color: white;
+            color: #823458;
+            border-color: #823458;
+            font-weight: 700;
+        }
+
+        #timer strong {
+            font-size: 1.2em;
+        }
+
+        #timer, #timer h1, #timer strong {
+            float: right;
+            margin-right: 3px;
+        }
+
+        .fa-question-circle:before {
+            content: "\f059";
+            color: black;
+            margin-right: 14px;
+        }
+
+        .exam:not(.row) {
+            margin-left: 30px;
+            border: 1px solid lightgray;
+            width: 76.5%;
+            overflow-y: auto;
+        }
+
+        .login_name {
+            float: right;
+            margin-top: 0px;
+            margin-right: 22px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="mainContainer" class="container">
+        <div id="body" class="wrapper">
+            <div id="header" class="wrapper">
+                <i class="fa fa-cubes fa-3x"></i>
+                <h3>Autonomiczny system egzaminacyjny</h3>
+                <a class="btnDialogInfo btn  btn-default" href="http://192.168.112.204/Candidate/Instruction"><i class="fa fa-question-circle fa-lg"></i> Instrukcja obsługi</a>
+                <span class="login_name"><strong>Zdający: </strong>Imie_testowe Nazwisko_testowe</span>
+                <a class="pull-right btn  btn-default" href="http://192.168.112.204/Candidate/Logout" id="logout">Wyloguj z systemu</a>
+            </div>
+            <section>
+                <span style="display:none;">
+    <span id="0"></span>
+    <span id="1"></span>
+    <span id="2"></span>
+    <span id="3"></span>
+    <span id="4"></span>
+</span>
+<div id="dialogDiv" class="modal fade in">
+    <div id="dialogContent" class="modal-dialog" style="width:1360px;"></div>
+</div>
+
+<div class="row header">
+    <div class="row exam" style="margin: 20px 0">
+        <div class="table-header">
+            <label for="">Egzamin - lista zadań<span class="required" style="visibility:hidden;">*</span> </label>
+        </div>
+
+        <div class="exam">
+
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-3cb0-08d7b0837238&amp;anchor=0" id="5">Zadanie 1</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-7fe7-08d7b083723a&amp;anchor=1" id="6">Zadanie 2</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-9bc8-08d7b083723c&amp;anchor=2" id="7">Zadanie 3</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-d908-08d7b083723e&amp;anchor=3" id="8">Zadanie 4</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-e209-08d7b0837240&amp;anchor=4" id="9">Zadanie 5</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-f5a7-08d7b0837242&amp;anchor=5" id="10">Zadanie 6</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-a20d-08d7b0837245&amp;anchor=6" id="11">Zadanie 7</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-cfbb-08d7b0837247&amp;anchor=7" id="12">Zadanie 8</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-f3de-08d7b0837249&amp;anchor=8" id="13">Zadanie 9</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-085e-08d7b083724c&amp;anchor=9" id="14">Zadanie 10</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-15b3-08d7b083724e&amp;anchor=10" id="15">Zadanie 11</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-df40-08d7b083724f&amp;anchor=11" id="16">Zadanie 12</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-cb2d-08d7b0837250&amp;anchor=12" id="17">Zadanie 13</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-abf1-08d7b0837251&amp;anchor=13" id="18">Zadanie 14</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-8ae9-08d7b0837252&amp;anchor=14" id="19">Zadanie 15</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-a6d9-08d7b0837253&amp;anchor=15" id="20">Zadanie 16</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-7d6a-08d7b0837254&amp;anchor=16" id="21">Zadanie 17</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-0634-08d7b0837255&amp;anchor=17" id="22">Zadanie 18</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-93ca-08d7b0837255&amp;anchor=18" id="23">Zadanie 19</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-2494-08d7b0837256&amp;anchor=19" id="24">Zadanie 20</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-a8ed-08d7b0837256&amp;anchor=20" id="25">Zadanie 21</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-2cf4-08d7b0837257&amp;anchor=21" id="26">Zadanie 22</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-ae8f-08d7b0837257&amp;anchor=22" id="27">Zadanie 23</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-4157-08d7b0837258&amp;anchor=23" id="28">Zadanie 24</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-c989-08d7b0837258&amp;anchor=24" id="29">Zadanie 25</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-4d6f-08d7b0837259&amp;anchor=25" id="30">Zadanie 26</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-cfb2-08d7b0837259&amp;anchor=26" id="31">Zadanie 27</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-5254-08d7b083725a&amp;anchor=27" id="32">Zadanie 28</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-dc67-08d7b083725a&amp;anchor=28" id="33">Zadanie 29</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-5fb1-08d7b083725b&amp;anchor=29" id="34">Zadanie 30</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-e192-08d7b083725b&amp;anchor=30" id="35">Zadanie 31</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-63ee-08d7b083725c&amp;anchor=31" id="36">Zadanie 32</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-e6a0-08d7b083725c&amp;anchor=32" id="37">Zadanie 33</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-a740-08d7b083725d&amp;anchor=33" id="38">Zadanie 34</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-2e99-08d7b083725e&amp;anchor=34" id="39">Zadanie 35</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-b061-08d7b083725e&amp;anchor=35" id="40">Zadanie 36</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-3284-08d7b083725f&amp;anchor=36" id="41">Zadanie 37</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-b4b7-08d7b083725f&amp;anchor=37" id="42">Zadanie 38</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-4f66-08d7b0837260&amp;anchor=38" id="43">Zadanie 39</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <a class="btn  btn-default" href="http://192.168.112.204/Candidate/Answer?taskId=4e830000-5b26-e411-d3ec-08d7b0837260&amp;anchor=39" id="44">Zadanie 40</a>
+                    </div>
+                    <div class="col-md-6">
+<label class="redLabel" for="">Nie udzielono odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div id="r">
+        <div>
+            <label for="QualificationName">Kwalifikacja<span class="required" style="visibility:hidden;">*</span> </label>
+            <input class="form-control" disabled="disabled" id="QualificationName" name="QualificationName" type="text" value="BPO.03">
+        </div>
+        <div>
+            <label for="ExamInfo_BeginActualDate">Czas rozpoczęcia egzaminu<span class="required" style="visibility:hidden;">*</span> </label>
+            <input class="form-control" data-bind="date: BeginActualDate" data-val="true" data-val-date="The field Czas rozpoczęcia egzaminu must be a date." data-val-required="The Czas rozpoczęcia egzaminu field is required." disabled="disabled" id="ExamInfo_BeginActualDate" name="ExamInfo.BeginActualDate" type="text" value="2022-11-28 12:42:52">
+        </div>
+        <div>
+            <label for="ExamInfo_EndActualDate">Czas zakończenia egzaminu<span class="required" style="visibility:hidden;">*</span> </label>
+            <input class="form-control" data-bind="date: EndActualDate" data-val="true" data-val-date="The field Czas zakończenia egzaminu must be a date." data-val-required="The Czas zakończenia egzaminu field is required." disabled="disabled" id="ExamInfo_EndActualDate" name="ExamInfo.EndActualDate" type="text" value="2022-11-28 13:42:52">
+        </div>
+        <div>
+            <label for="AnswersCount">Liczba udzielonych odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>
+            <input class="form-control" data-val="true" data-val-number="The field Liczba udzielonych odpowiedzi must be a number." data-val-required="The Liczba udzielonych odpowiedzi field is required." disabled="disabled" id="AnswersCount" name="AnswersCount" type="text" value="0">
+        </div>
+        <div>
+            <label for="EmptyAnswers">Liczba nieudzielonych odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>
+            <input class="red  form-control" disabled="disabled" id="EmptyAnswers" name="EmptyAnswers" type="text" value="40">
+        </div>
+        <div id="timer">
+            <strong>Do końca egzaminu pozostało:
+            </strong>
+            <h1 data-bind="text: RemainTime">59:43</h1>
+        </div>
+        <div><a class="btn  btn-default" href="http://192.168.112.204/Candidate/EndExam" id="EndExamButton">Zakończ egzamin <i class="fa fa-sign-out fa-lg"></i></a></div>
+    </div>
+</div>
+<div class="modal fade" id="dialogLogout">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Zakończenie egzaminu</h4>
+            </div>
+            <div class="modal-body">
+                <p>Czy na pewno chcesz zakończyć egzamin? Nie będziesz już mógł zalogować się do systemu i zmienić odpowiedzi.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nie, pozostań</button>
+                <button type="button" class="btn btn-primary" id="LogoutButton">Tak, zakończ</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+            </section>
+        </div>
+        <div id="footer">
+            <a class="footer-kapital" href="#"></a>
+            <a class="footer-cke" href="#"></a>
+            <a class="footer-ue" href="#"></a>
+            <h4>Projekt współfinansowany ze środków Unii Europejskiej w ramach Europejskiego Funduszu Społecznego.</h4>
+        </div>
+    </div>
+    <script src="Exam_pliki/jquery"></script>
+
+    <script>
+    var yesTranslation = 'Tak';
+    var noTranslation = 'Nie';
+
+    var candidateInternetConnectivityUrl = '/Candidate/CheckCandidateInternetConnectivity'; 
+    var candidateActiveExamIntervalUrl = '/Candidate/CheckLogoutState'; 
+    var candidateLogoutUrl = '/Candidate/Logout';
+
+    </script>
+    <script src="Exam_pliki/js"></script>
+
+    <script src="Exam_pliki/js-candidate"></script>
+
+    
+    <script>
+        //Bindowanie do KO
+
+        var examViewModel = ko.mapping.fromJS({"EndActualDate":"2022-11-28T12:42:52.947433Z","BeginActualDate":"2022-11-28T11:42:52.947433Z"});
+
+        // Licznik 
+        var _refreshObservable = ko.observable();
+        // Binding dla licznika
+        var startServerDate = moment(new Date("2022-11-28T11:42:53.244931Z"));
+        var startClientDate = moment(new Date());
+        var dateDiff = startServerDate.diff(startClientDate, "seconds");
+        
+        examViewModel.RemainTime = ko.computed(function () {
+            _refreshObservable();
+            var nowDate = moment(new Date()).add(dateDiff, "seconds");
+            var endDate = moment(examViewModel.EndActualDate());
+
+            var remainMinutes = endDate.diff(nowDate, "minutes");
+            remainMinutes = (remainMinutes <= 0) ? 0 : remainMinutes;
+            
+            var remainSeconds = endDate.diff(nowDate, "seconds");
+            remainSeconds = (remainSeconds <= 0) ? 0 : remainSeconds;
+            
+            var seconds = (remainSeconds - remainMinutes * 60);
+            
+            return ((remainMinutes < 10) ? "0" + remainMinutes : remainMinutes) 
+                + ":" 
+                + ((seconds < 10) ? "0" + seconds : seconds);
+        }, this);
+        
+        function NotifyRefresh() {
+            _refreshObservable.notifySubscribers();
+            timeoutVar = setTimeout(NotifyRefresh, 1000);
+        }
+
+        var timeoutVar = setTimeout(NotifyRefresh, 1000);
+        // End licznik
+        
+        ko.applyBindings(examViewModel);
+        //koniec KO
+        
+        
+        $(document).ready(function () {
+            $(document).on("click", "#EndExamButton", function () {
+                $('#dialogLogout').modal('show');
+                return false;
+            });
+            $(document).on("click", "#LogoutButton", function () {
+                window.location.href = $("#EndExamButton").attr("href");
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+    </script>
+
+
+<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger animated fadeInDown" role="alert" data-notify-position="top-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button><span data-notify="icon" class="glyphicon glyphicon-warning-sign"></span> <span data-notify="title"></span> <span data-notify="message">UWAGA!
+ Stacja jest podłączona do Internetu, może to skutkować unieważnieniem 
+egzaminu. Koniecznie zgłoś zaistniałą sytuację do Operatora Egzaminu</span><a href="#" target="_blank" data-notify="url"></a></div></body></html>

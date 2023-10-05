@@ -1,0 +1,36 @@
+<h2>stoper</h2>
+<p id="timer"></p>
+<button id="stop">stop</button>
+<button id="resume">resume</button>
+<script>
+    
+    let minutes=59;
+    let seconds=59;
+    
+    function stoper(){
+        let timer=setInterval(function(){
+            if(seconds==0){
+                if(minutes==0){
+                    //koniec
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                }else{
+                    minutes--;
+                }
+                seconds=59;
+            }else{
+                seconds--;
+            }
+            if(seconds<10){
+                seconds="0"+seconds;
+            }
+            if(minutes<10){
+                minutes="0"+minutes;
+            }
+            let time=minutes+':'+seconds;
+            let place=document.querySelector('#timer');
+            place.innerHTML=time;
+
+           
+        }, 1000);
+    }stoper()
+</script>

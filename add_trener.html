@@ -1,0 +1,37 @@
+<h3>Zarządzanie trenerami </h3>
+<button>Dodaj trenera</button><br><br>
+<form>
+<label for="login">login</label>
+<input type="text" id="login" name="login"><br>
+<label for="password">password</label>
+<input type="text" id="password" name="password"><br>
+<input type="checkbox" id="k1" name="k1" value="1">
+<label for="k1">inf.02. systemy i sieci</label><br>
+<input type="checkbox" id="k2" name="k2" value="2">
+<label for="k2">inf.03 aplikacje internetowe i bazy danych</label><br>
+<input type="checkbox" id="k3" name="k3" value="3">
+<label for="k2">inf.04 aplikacje wszelakie</label><br>
+
+</form>
+<h3 id="test">Lista trenerów:</h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $( function(){ 
+        $("button").click( function(){ 
+            let result=$("form").serializeArray();
+            if( result[2] ){
+                k1=result[2]['value'];
+            }else{
+                k1="";
+            }
+            if( result[3] ){
+                k2=result[3]['value'];
+            }else{
+                k2="";
+            }
+            let user="<div>"+result[0]['value']+result[1]['value']+k1+k2 +"<button class=\"del\">usuń</button></div><br>";
+            $("#test").after( user );
+            $(".del").click( function(){ $(this).parent().remove();});
+        });
+    } );
+</script>

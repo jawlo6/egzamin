@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="ExamStart_pliki/css.css" rel="stylesheet">
+
+    
+    <style>
+        #nie-odsuniety-tytul {
+            margin-left: 0 !important;
+        }
+        #AcceptButton {
+            margin: 25px auto;
+        }
+
+        /*skopiowane od nat*/
+        .red {
+            color: red;
+            font-weight: bold;
+            border-color: red;
+        }
+
+        .greenLabel {
+            color: green;
+        }
+
+        .redLabel {
+            color: red;
+        }
+
+        #body {
+            border-top: 6px solid #2BAAB1;
+            background-color: #fff;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            -moz-box-shadow: 1px 1px 7px #ccc;
+            -webkit-box-shadow: 1px 1px 7px #ccc;
+            box-shadow: 1px 1px 7px #ccc;
+        }
+
+        .p-inline p {
+            display: inline;
+            font-weight: normal !important;
+        }
+
+        .div-with-border {
+            border: black solid thin;
+            margin-bottom: 10px;
+        }
+
+        .div-with-top-margin {
+            margin-top: 10px;
+        }
+
+        .container {
+            margin-top: 100px;
+            width: 1304px;
+            position: relative;
+            height: 818px;
+        }
+
+        .row.header {
+            border-top: 1px solid lightgray;
+            margin: 4px 0;
+        }
+
+        #header {
+            padding: 13px 0px 13px;
+            text-indent: 16px;
+        }
+
+        #r div {
+            margin: 0px 5px 36px 5px;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-left: 14px;
+            display: inline;
+        }
+
+        .table-header {
+            /*margin-top: 118px;*/
+            color: #823458;
+            margin-bottom: 20px;
+        }
+
+        .div-with-border {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .btn-purple, .btn-purple:active, .btn-purple:focus, .btn-purple:hover {
+            text-indent: 0px;
+        }
+
+        p {
+            margin: inherit;
+        }
+
+        .p-inline {
+            margin-left: 10px;
+        }
+
+        #body {
+            border: none;
+            border-top: 6px solid #2BAAB1;
+        }
+
+        /*.btnDialogInfo {
+            margin-top: -113px;
+        }*/
+           #logout {
+            margin-top: -20px;
+            font-size: smaller;
+            margin-right: 8px;
+            float: right;
+            clear: both;
+        }
+        .btn#EndExamButton {
+            width: 100%;
+            background-color: white;
+            color: #823458;
+            border-color: #823458;
+            font-weight: 700;
+        }
+
+        #timer strong {
+            font-size: 1.2em;
+        }
+
+        #timer, #timer h1, #timer strong {
+            float: right;
+            margin-right: 3px;
+        }
+
+        .fa-question-circle:before {
+            content: "\f059";
+            color: black;
+            margin-right: 14px;
+        }
+
+        .exam:not(.row) {
+            margin-left: 30px;
+            border: 1px solid lightgray;
+            width: 95%;
+            max-height: 450px;
+            overflow-y: auto;
+        }
+          .login_name {
+            float: right;
+            margin-top: 0px;
+            margin-right: 22px;
+            margin-bottom: 20px;
+        }
+/*end*/
+    </style>
+
+</head>
+<body>
+    <div id="mainContainer" class="container">
+        <div id="body" class="wrapper">
+            <div id="header" class="wrapper">
+                <i class="fa fa-cubes fa-3x"></i>
+                <h3>Autonomiczny system egzaminacyjny</h3>
+                <a class="btnDialogInfo btn  btn-default" href="http://192.168.112.204/Candidate/Instruction"><i class="fa fa-question-circle fa-lg"></i> Instrukcja obsługi</a>
+                <span class="login_name"><strong>Zdający: </strong>Imie_testowe Nazwisko_testowe</span>
+                <a class="pull-right btn  btn-default" href="http://192.168.112.204/Candidate/Logout" id="logout">Wyloguj z systemu</a>
+            </div>
+            <section>
+                 
+<div id="dialogDiv" class="modal fade in">
+    <div id="dialogContent" class="modal-dialog" style="width:1360px;"></div>
+</div>
+<form action="/Candidate/ExamStart" id="ExamStartForm" method="post" novalidate="novalidate"><input id="startExam" name="startExam" type="hidden" value="{ Value = False }">    <br>
+    <div style="margin-left: 30px;">
+        <h3 id="nie-odsuniety-tytul">Rozpoczęcie egzaminu  z kwalifikacji: <label for="test">BPO.03</label></h3>
+        <br>
+        <br>
+        <span style="margin: 0 auto;">Czy chcesz rozpocząć egzamin? Po 
+kliknięciu przycisku "Start" nastąpi przekierowanie na stronę zdawania 
+egzaminu i od tego momentu rozpocznie się liczenie czasu.</span>
+    </div>
+    <div class="text-center">
+        <button class="btn-default  btn" id="AcceptButton" type="button">Start</button>
+    </div>
+    <div style="clear: both;"></div>
+</form>
+
+
+            </section>
+        </div>
+        <div id="footer">
+            <a class="footer-kapital" href="#"></a>
+            <a class="footer-cke" href="#"></a>
+            <a class="footer-ue" href="#"></a>
+            <h4>Projekt współfinansowany ze środków Unii Europejskiej w ramach Europejskiego Funduszu Społecznego.</h4>
+        </div>
+    </div>
+    <script src="ExamStart_pliki/jquery"></script>
+
+    <script>
+    var yesTranslation = 'Tak';
+    var noTranslation = 'Nie';
+
+    var candidateInternetConnectivityUrl = '/Candidate/CheckCandidateInternetConnectivity'; 
+    var candidateActiveExamIntervalUrl = '/Candidate/CheckLogoutState'; 
+    var candidateLogoutUrl = '/Candidate/Logout';
+
+    </script>
+    <script src="ExamStart_pliki/js"></script>
+
+    <script src="ExamStart_pliki/js-candidate"></script>
+
+    
+    <script>
+        $(document).ready(function() {
+            $(document).on("click", "#AcceptButton", function() {
+                $("input[name='startExam']").val(true);
+                $("#ExamStartForm").submit();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+    </script>
+
+
+<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger animated fadeInDown" role="alert" data-notify-position="top-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button><span data-notify="icon" class="glyphicon glyphicon-warning-sign"></span> <span data-notify="title"></span> <span data-notify="message">UWAGA!
+ Stacja jest podłączona do Internetu, może to skutkować unieważnieniem 
+egzaminu. Koniecznie zgłoś zaistniałą sytuację do Operatora Egzaminu</span><a href="#" target="_blank" data-notify="url"></a></div></body></html>

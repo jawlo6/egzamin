@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <html lang="pl-PL">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egzamin zawodowy teoretyczny</title> 
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>  
+
+</head>
+<body>
+
+<h3>Wstaw pytanie</h3>
+  <form action="insertquestion.php" method="post">
+    <div>
+    <div class="left">
+      <div class="clearleft">Pytanie:</div>
+      <div class="left">
+        <textarea name="pytanie"  rows="10" cols="100"></textarea><br>
+      </div>
+      <div class="left">obrazek?       
+      </div>
+      <div class="left">
+        <button>Wstaw obrazek</button> 
+      </div>
+    </div>
+    <div class="clearleft">Odpowiedzi:</div>
+    <div class="clearleft">
+      <div class="left">
+        <textarea name="odp1" rows="3" cols="100"></textarea>
+      </div>
+      <div class="left">obrazek?       
+      </div>
+      <div class="left">
+        <button>Wstaw obrazek</button> 
+      </div>
+    </div>
+    <div class="clearleft">
+      <div class="left">
+        <textarea name="odp2" rows="3" cols="100"> </textarea>
+      </div>
+      <div class="left">obrazek?       
+      </div>
+      <div class="left">
+        <button>Wstaw obrazek</button> 
+      </div>
+    </div>
+    <div class="clearleft">
+      <div class="left">
+        <textarea name="odp3" rows="3" cols="100"> </textarea>
+      </div>
+      <div class="left">obrazek?       
+      </div>
+      <div class="left">
+        <button>Wstaw obrazek</button> 
+      </div>
+    </div>
+    <div class="clearleft">
+      <div class="left">
+        <textarea name="odp4" rows="3" cols="100"> </textarea><br>
+      </div>
+      <div class="left">obrazek?       
+      </div>
+      <div class="left">
+        <button>Wstaw obrazek</button> 
+      </div>
+    </div>
+    </div>
+    
+    <div  style="clear:left" >
+      <input type="submit" value="Zapisz">
+      <input type="reset" value="wyczyść">   
+    </div>    
+        
+  </form>
+    
+</body>
+</html> 
+

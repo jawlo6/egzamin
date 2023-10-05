@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="Answer1_pliki/css.css" rel="stylesheet">
+
+    
+    <style>
+        #timer strong {
+            float: left;
+            margin: 6px 10px 0 0;
+        }
+        #timer span {
+            float: left;
+            font-weight: bold;
+            font-size: 33px;
+            margin-top: -6px;
+        }
+        .info-data-answers-count {
+            width: 200px;
+        }
+        .info-data-answers-count-label {
+            float:left;
+            margin: 6px 10px 30px 17px;
+        }
+
+        .alert.alert-danger {
+            height: 37px;
+            margin-top: 20px;
+            background-image: none;
+            width: 76%;
+        }
+
+        .validation-summary-valid {
+            margin-top: -15px;
+        }
+
+        #body {
+            background-color: #fff;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -moz-box-shadow: 1px 1px 7px #ccc;
+            -webkit-box-shadow: 1px 1px 7px #ccc;
+            box-shadow: 1px 1px 7px #ccc;
+            border: none;
+            border-top: 6px solid #2BAAB1;
+            min-height: 830px;
+        }
+
+        .p-inline p {
+            display: inline;
+            font-weight: normal !important;
+        }
+
+        .div-with-border {
+            border: black solid thin;
+            margin-bottom: 10px;
+        }
+
+        .div-with-top-margin {
+            margin-top: 10px;
+        }
+
+        .container {
+            margin-top: 0px;
+            width: 1304px;
+            position: relative;
+        }
+
+        .row.header {
+            border-top: 1px solid lightgray;
+            margin: 4px 0;
+        }
+
+        #header {
+            padding: 13px 0px 13px;
+            text-indent: 16px;
+        }
+
+        #r div {
+            margin: 0px 5px 46px 5px;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-left: 14px;
+            display: inline;
+        }
+
+        .table-header {
+            /*margin-top: 118px;*/
+            color: #823458;
+            margin-bottom: 20px;
+        }
+
+        .div-with-border {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .btn-purple, .btn-purple:active, .btn-purple:focus, .btn-purple:hover {
+            text-indent: 0px;
+        }
+
+        p {
+            margin: inherit;
+        }
+
+        .p-inline {
+            margin-left: 10px;
+        }
+
+        /*.btnDialogInfo {
+            margin-top: -113px;
+        }*/
+        #logout {
+            margin-top: -20px;
+            font-size: smaller;
+            margin-right: 8px;
+            float: right;
+            clear: both;
+        }
+        label {
+            display: inline;
+        }
+        .btn#EndExamButton {
+            width: 100%;
+            background-color: white;
+            color: #823458;
+            border-color: #823458;
+            font-weight: 700;
+        }
+
+        /*#timer strong {
+            font-size: 1.2em;
+        }
+
+        #timer, 
+        #timer h1, 
+        #timer strong {
+            float: right;
+            margin-right: 3px;
+        }*/
+
+        .fa-question-circle:before {
+            content: "\f059";
+            color: black;
+            margin-right: 14px;
+        }
+
+        .exam:not(.row) {
+            margin-left: 30px;
+            border: 1px solid lightgray;
+            overflow-y: auto;
+        }
+        .login_name {
+            float: right;
+            margin-top: 0px;
+            margin-right: 22px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="mainContainer" class="container">
+        <div id="body" class="wrapper">
+            <div id="header" class="wrapper">
+                <i class="fa fa-cubes fa-3x"></i>
+                <h3>Autonomiczny system egzaminacyjny</h3>
+                <a class="btnDialogInfo btn  btn-default" href="http://192.168.112.204/Candidate/Instruction"><i class="fa fa-question-circle fa-lg"></i> Instrukcja obsługi</a>
+                <span class="login_name"><strong>Zdający: </strong>Imie_testowe Nazwisko_testowe</span>
+                <a class="pull-right btn  btn-default" href="http://192.168.112.204/Candidate/Logout" id="logout">Wyloguj z systemu</a>
+            </div>
+            <section>
+                
+
+<div id="dialogDiv" class="modal fade in">
+    <div id="dialogContent" class="modal-dialog" style="width:1360px;"></div>
+</div>
+
+<div class="row header">
+    <div class="row exam" style="margin: 20px 0">
+        <div class="info-data-row">
+            <div class="col-md-7">
+                <label class="info-data-answers-count-label" for="AnswersCount">Liczba udzielonych odpowiedzi<span class="required" style="visibility:hidden;">*</span> </label>
+                <input class="info-data-answers-count  form-control" data-val="true" data-val-number="The field Liczba udzielonych odpowiedzi must be a number." data-val-required="The Liczba udzielonych odpowiedzi field is required." disabled="disabled" id="AnswersCount" name="AnswersCount" type="text" value="0">
+            </div>
+            <div id="timer">
+                <strong style="float:left;">Do końca egzaminu pozostało:
+                </strong>
+                <span data-bind="text: RemainTime" style="float:left;">59:22</span>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="table-header">
+            <label for="">Zadanie nr: 1<span class="required" style="visibility:hidden;">*</span> </label>
+        </div>
+        <div class="exam">
+            
+            <div>
+                <div class="col-md-12">
+                    <div class="col-md-12 div-with-border">
+                        <p>Do obowiązków służby bhp w zakładzie pracy należy</p>
+                    </div>
+                </div>
+<form action="/Candidate/Answer" id="CandidateAnswerForm" method="post" novalidate="novalidate"><input data-val="true" data-val-date="The field ShowDate must be a date." data-val-required="The ShowDate field is required." id="ShowDate" name="ShowDate" type="hidden" value="28.11.2022 12:43:14">                    <input type="hidden" name="taskId" value="4e830000-5b26-e411-3cb0-08d7b0837238">
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-inline">
+                                <input data-bind="checked: Answer" data-val="true" data-val-number="The field Answer must be a number." data-val-range="The field Answer must be between 1 and 8." data-val-range-max="8" data-val-range-min="1" data-val-required="Proszę wybrać odpowiedź" id="1" name="Answer" type="radio" value="1"><span class="field-validation-valid" data-valmsg-for="Answer" data-valmsg-replace="true"></span>
+                                
+                                <label for="1">A. <p>wydawanie poleceń usunięcia uchybień w zakresie bhp.</p></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-inline">
+                                <input data-bind="checked: Answer" id="2" name="Answer" type="radio" value="2"><span class="field-validation-valid" data-valmsg-for="Answer" data-valmsg-replace="true"></span>
+                                
+                                <label for="2">B. <p>zapewnianie przestrzegania w zakładzie pracy przepisów oraz zasad bhp.</p></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-inline">
+                                <input data-bind="checked: Answer" id="4" name="Answer" type="radio" value="4"><span class="field-validation-valid" data-valmsg-for="Answer" data-valmsg-replace="true"></span>
+                                
+                                <label for="4">C. <p>organizowanie pracy w sposób zapewniający bezpieczne i higieniczne warunki pracy.</p></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 p-inline">
+                                <input data-bind="checked: Answer" id="8" name="Answer" type="radio" value="8"><span class="field-validation-valid" data-valmsg-for="Answer" data-valmsg-replace="true"></span>
+                                
+                                <label for="8">D. <p>informowanie pracodawcy o stwierdzonych zagrożeniach zawodowych wraz z wnioskami zmierzającymi do<br>usuwania tych zagrożeń.</p></label>
+                            </div>
+                        </div>
+</form>            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="col-md-12 div-with-top-margin">
+    <div class="col-md-12">
+        <button class="btn-default  btn btn-purple" id="CancelAnswerButton" type="submit">Anuluj</button>
+        <button class="btn-default  btn" id="SaveAnswerButton" type="submit">Zapisz odpowiedź <i class="fa fa-check fa-lg"></i></button>
+        <div class="div-with-top-margin" style="height: 40px;">
+            <div class="bmvc-3-validation-summary"><div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div></div>
+        </div>
+    </div>
+</div>
+
+        <div style="clear:both"></div>
+<div class="modal fade" id="dialogLogout">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Zakończenie egzaminu</h4>
+            </div>
+            <div class="modal-body">
+                <p>Czy na pewno chcesz zakończyć egzamin. Nie będziesz się już mógł zalogować do systemu i zmienić odpowiedzi.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nie, pozostań</button>
+                <button type="button" class="btn btn-primary" id="LogoutButton">Tak, zakończ</button>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+            </section>
+        </div>
+        <div id="footer">
+            <a class="footer-kapital" href="#"></a>
+            <a class="footer-cke" href="#"></a>
+            <a class="footer-ue" href="#"></a>
+            <h4>Projekt współfinansowany ze środków Unii Europejskiej w ramach Europejskiego Funduszu Społecznego.</h4>
+        </div>
+    </div>
+    <script src="Answer1_pliki/jquery"></script>
+
+    <script>
+    var yesTranslation = 'Tak';
+    var noTranslation = 'Nie';
+
+    var candidateInternetConnectivityUrl = '/Candidate/CheckCandidateInternetConnectivity'; 
+    var candidateActiveExamIntervalUrl = '/Candidate/CheckLogoutState'; 
+    var candidateLogoutUrl = '/Candidate/Logout';
+
+    </script>
+    <script src="Answer1_pliki/js"></script>
+
+    <script src="Answer1_pliki/js-candidate"></script>
+
+    
+    <script>
+
+
+        var answerViewModel = ko.mapping.fromJS({"ExamInfo":{"ExamRecordNumber":"20200213/060201-0441A/20682527","ExaminationCenterNumber":2564,"ExaminationCenterName":"060201-0441A","CandidateCount":0,"LoggedCandidateCount":0,"LoggedOutCandidateCount":0,"BeginPlannedDate":"2020-06-02T06:00:00Z","EndPlannedDate":"2020-06-02T06:00:00Z","BeginActualDate":"2022-11-28T11:42:52.947433Z","EndActualDate":"2022-11-28T12:42:52.947433Z","ExamTeamOperator":"sdaf","ExamTeamHeadInspect":"asdf","ExamTeamHead":"sdfa","ExamTeamInspectPeople":"sdf","ConfigurationVerificationStatus":null,"ExamStatus":null,"CandidatesWithPasswords":[],"LoggedCandidates":[],"ExamDuration":"60","Qualifications":[],"CandidateSystems":[]},"Task":{"Id":"4e830000-5b26-e411-3cb0-08d7b0837238","TaskContent":"","Answers":[{"Id":"4e830000-5b26-e411-a40c-08d7b0837278","Task_Id":"4e830000-5b26-e411-3cb0-08d7b0837238","AnswerKey":1,"AnswerText":""},{"Id":"4e830000-5b26-e411-bce2-08d7b0837280","Task_Id":"4e830000-5b26-e411-3cb0-08d7b0837238","AnswerKey":2,"AnswerText":""},{"Id":"4e830000-5b26-e411-cb1f-08d7b0837280","Task_Id":"4e830000-5b26-e411-3cb0-08d7b0837238","AnswerKey":4,"AnswerText":""},{"Id":"4e830000-5b26-e411-e4d4-08d7b0837280","Task_Id":"4e830000-5b26-e411-3cb0-08d7b0837238","AnswerKey":8,"AnswerText":""}]},"TaskInfo":{"TaskId":"4e830000-5b26-e411-3cb0-08d7b0837238","TaskPosition":1,"AnswerOrder":1248,"CandidateId":"4e830000-5b26-e411-a3a0-08d7b0956cad","CorrectAnswerKey":0},"AnswerOrder":[1,2,4,8],"Answer":0,"AnswersCount":0,"QualificationName":"BPO.03","Anchor":0,"ShowDate":"2022-11-28T11:43:14.659982Z","AnswerDate":null,"IsCancelled":false});
+        answerViewModel.Answer(answerViewModel.Answer().toString());
+
+        // Licznik 
+        var _refreshObservable = ko.observable();
+        // Binding dla licznika
+        var startServerDate = moment(new Date("2022-11-28T11:43:14.747727Z"));
+        var startClientDate = moment(new Date());
+        var dateDiff = startServerDate.diff(startClientDate, "seconds");
+        
+        answerViewModel.RemainTime = ko.computed(function () {
+            _refreshObservable();
+            var nowDate = moment(new Date()).add(dateDiff, "seconds");
+            var endDate = moment(answerViewModel.ExamInfo.EndActualDate());
+
+            var remainMinutes = endDate.diff(nowDate, "minutes");
+            remainMinutes = (remainMinutes <= 0) ? 0 : remainMinutes;
+
+            var remainSeconds = endDate.diff(nowDate, "seconds");
+            remainSeconds = (remainSeconds <= 0) ? 0 : remainSeconds;
+
+            var seconds = (remainSeconds - remainMinutes * 60);
+
+            return ((remainMinutes < 10) ? "0" + remainMinutes : remainMinutes)
+                + ":"
+                + ((seconds < 10) ? "0" + seconds : seconds);
+        }, this);
+
+        function NotifyRefresh() {
+            _refreshObservable.notifySubscribers();
+            timeoutVar = setTimeout(NotifyRefresh, 1000);
+        }
+
+        var timeoutVar = setTimeout(NotifyRefresh, 1000);
+        // End licznik 
+        
+        // apply binding
+        ko.applyBindings(answerViewModel);
+
+        $(document).ready(function () {
+            
+            $(document).on("click", "#EndExamButton", function () {
+                $('#dialogLogout').modal('show');
+                return false;
+            });
+            $(document).on("click", "#LogoutButton", function () {
+                window.location.href = $("#EndExamButton").attr("href");
+            });
+            $(document).on("click", "#CancelAnswerButton", function () {
+
+                answerViewModel.Answer(1);
+                answerViewModel.IsCancelled(true);
+
+                sendData();
+
+            });
+            $(document).on("click", "#SaveAnswerButton", function () {
+                sendData() ;
+                $(".field-validation-error span").first().appendTo(".validation-summary-valid");
+                $(".field-validation-error").not(':first').hide();
+            });
+
+             function sendData() {
+                //if ($("input[name='answer']:checked").length < 1)
+                //    return false;
+
+                //return true;
+                 var self = $("#CandidateAnswerForm");
+                debugger;
+                self.validate();
+                if (answerViewModel.IsCancelled() || self.valid()) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: self.attr("href"),
+                        data: ko.mapping.toJSON(answerViewModel),
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.result) {
+                                window.location.href = "/Candidate/Exam#0";
+                            } else {
+                                alert("Wystąpił błąd");
+                            }
+                        },
+                        error: function () {
+                            alert("Wystąpił błąd");
+                        }
+                    });
+                }
+
+                return false;
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+    </script>
+
+
+<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger animated fadeInDown" role="alert" data-notify-position="top-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; right: 20px;"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button><span data-notify="icon" class="glyphicon glyphicon-warning-sign"></span> <span data-notify="title"></span> <span data-notify="message">UWAGA!
+ Stacja jest podłączona do Internetu, może to skutkować unieważnieniem 
+egzaminu. Koniecznie zgłoś zaistniałą sytuację do Operatora Egzaminu</span><a href="#" target="_blank" data-notify="url"></a></div></body></html>

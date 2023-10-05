@@ -1,0 +1,55 @@
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+.clearleft{
+	clear:left;
+}
+
+.image{
+	height: 30px;
+	width: auto
+}
+
+img{
+	height: 30px;
+	width: auto
+}
+.pytania{
+	border: 1px solid gray;
+	width:900px;
+}
+.info{
+	border: 1px solid gray;
+	width: 250px;
+
+}
+.pytanie{
+    border: none;
+    margin:  10px;
+	padding: 6px 12px;
+	height: 1.5em;
+}
+.przycisk{
+	display: inline;
+	float: left;
+	border: none;
+	width: 200px;
+}
+.btn{
+	color: white;
+	background-color: #055566;
+	padding: 6px 12px;
+	border-radius: 4px;
+}
+.status{
+	float: left;
+	border:none;
+	width: 500px;
+}
+
+a:link {
+	text-decoration: none;
+  }

@@ -1,0 +1,8 @@
+ErrorDocument 401 /rozdzial_17/odmowa.html
+
+AuthUserFile /ksiazka/.htpass
+AuthGroupFile /dev/null
+AuthName "Nazwa zasobu"
+AuthType Basic
+
+require valid-user

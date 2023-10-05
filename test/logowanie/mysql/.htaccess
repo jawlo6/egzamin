@@ -1,0 +1,12 @@
+ErrorDocument 401 /rozdzial_17/odmowa.html
+
+AuthName "Nazwa zasobu"
+AuthType Basic
+
+Auth_MySQL_DB uwierz
+Auth_MySQL_Encryption_Types MySQL
+Auth_MySQL_Password_Table uwierz
+Auth_MySQL_Username_Field uzytkownik
+Auth_MySQL_Password_Field haslo
+
+require valid-user

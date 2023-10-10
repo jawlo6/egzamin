@@ -1,2 +1,2 @@
 INSERT into odpowiedzi( sesja, user, pytanie, odpowiedz )
-    VALUES ( "test1", "test1", 4, 4 )pytanie: 4  odpowiedź: 4,  34
+    VALUES ( "inf.03", "inf.03", 4, 4 )pytanie: 4  odpowiedź: 4,  34

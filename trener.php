@@ -11,11 +11,17 @@
 <h1>Zarządzanie uczniami</h1>
 <h3>Tworzenie nowych uczniów:</h3>
 
-
 <?php
     session_start();
-       
-  //$user=;
+
+    require  "db_connect.php";      
+    $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
+  
+    echo "host".$host;
+    $user=$_POST['login'];
+    $pass=$_POST['password'];
+    $_SESSION["login"]=$user;
+  
 
     echo $_SESSION['kwalifikacjaSymbol'] . " " . $_SESSION['kwalifikacjaNazwa'];
 

@@ -8,9 +8,11 @@
 </head>
 <body>
 
-  <form action="choice.php" method="post">
+  <form action="login.php" method="post">
     <label for="login">Podaj nick</label>
-    <input type="text" name="nick" required> 
+    <input type="text" name="login" required> 
+    <label for="password">Podaj hasło</label>
+    <input type="password" name="password" required>
 
     <input type="submit" value="Dalej"</input>
   </form> 

@@ -13,6 +13,7 @@
 
   session_start();
   $pytanie=$_POST['pytanie'];
+  $nr=$_POST['nr'];
   $odp1=$_POST['odp1'];
   $odp2=$_POST['odp2'];
   $odp3=$_POST['odp3'];
@@ -81,9 +82,8 @@ echo "kwalifikacja: ". $kwal;
 
 
 
-
-  $sql="INSERT into PYTANIA( pytanie, odpowiedz1, odpowiedz2,odpowiedz3,odpowiedz4,poprawna,nazwaObrazka,nazwaObrazka1,kwal,zestaw )
-    VALUES ( \"".$pytanie ."\", \"". $odp1 ."\", \"". $odp2 ."\", \"". $odp3 ."\", \"". $odp4 ."\",". $poprawna . ",\"". $fileName . "\",\"". $fileName1 ."\",".$kwal.",\"". $zestaw . "\" )"; 
+$sql="INSERT into PYTANIA( pytanie, nr, odpowiedz1, odpowiedz2,odpowiedz3,odpowiedz4,poprawna,nazwaObrazka,nazwaObrazka1,kwal,zestaw )
+    VALUES ( \"".$pytanie ."\", ".$nr . ",        \"". $odp1 ."\", \"". $odp2 ."\", \"". $odp3 ."\", \"". $odp4 ."\",". $poprawna . ",\"". $fileName . "\",\"". $fileName1 ."\",".$kwal.",\"". $zestaw . "\" )"; 
 
 echo "<br> sql=".$sql;       
 

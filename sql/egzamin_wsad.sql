@@ -63,6 +63,7 @@ CREATE TABLE `odpowiedzi` (
 
 CREATE TABLE `pytania` (
   `id` int(11) NOT NULL,
+  `nr` int(11) DEFAULT NULL,
   `pytanie` text DEFAULT NULL,
   `odpowiedz1` text DEFAULT NULL,
   `odpowiedz2` text DEFAULT NULL,
@@ -75,7 +76,8 @@ CREATE TABLE `pytania` (
   `nazwaObrazka4` text DEFAULT NULL,
   `poprawna` tinyint(4) DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `kwal` int(11) DEFAULT NULL
+  `kwal` int(11) DEFAULT NULL,
+  `zestaw` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2;
 
 --

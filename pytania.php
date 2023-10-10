@@ -43,6 +43,10 @@ if( $row=mysqli_fetch_assoc( $result) ){
       <div>
         <label for="zestaw">Zestaw</label>
         <input type="text" name="zestaw">
+      </div>
+      <div>
+        <label for="nr">Nr pytania</label>
+        <input type="number" name="nr">
       </div>  
     <div class="left">
       <div class="clearleft">Pytanie:</div>

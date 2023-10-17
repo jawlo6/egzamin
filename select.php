@@ -43,7 +43,10 @@
         case 2:   //trener
           login_trener();
           break;  
-        case 3:   //uczeń
+        case 3:   //test
+          login_test();
+          break;
+        case 4: 
           login_uczen();
           break;  
         default:

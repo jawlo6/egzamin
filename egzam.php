@@ -41,11 +41,12 @@
     $result = mysqli_query($con,$sql);
     $QUESTIONS=mysqli_num_rows($result);
     
-// echo "\n pytań: ". $QUESTIONS;
+ echo "\n pytań: ". $QUESTIONS;
 
     $question=[];  //nr pytania i odpowiedź 
     while ($row = $result->fetch_row()){
       array_push($question,[$row[0],$row[11],0]);
+     
     }
     if($QUESTIONS>$EGZAM_QUESTIONS){ // losowanie pytań 
       shuffle( $question );

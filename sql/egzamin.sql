@@ -82,7 +82,7 @@ CREATE TABLE `kwalifikacje` (
 --
 -- Struktura tabeli  `user`
 --
---- typ: 1-admin, 2-trener, 3-uczeń
+--- typ: 1-admin, 2-trener, 3-test, 4-uczeń
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

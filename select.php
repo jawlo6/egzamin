@@ -15,8 +15,14 @@
 <?php
   session_start();
   require  "db_connect.php";      
-  $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
 
+  $user=$_SESSION["login"];
+  $kwal=$_SESSION["kwalifikacja"];
+
+
+
+
+/*
 //  echo "host".$host;
   $user=$_POST['login'];
   $pass=$_POST['password'];
@@ -24,9 +30,7 @@
 
 //echo "user: ". $user."<br>";
   if( isset( $_POST['login'])){ // 
-    
-
-    $sql="SELECT * FROM USER 
+      $sql="SELECT * FROM USER 
           WHERE login=\"".$user."\" and password=\"".sha1(".$pass.")."\""; 
    // echo "sql: " . $sql."<br>";
     
@@ -68,26 +72,10 @@
    // echo "unset $user";
   }
 
-  function login_admin(){
-
-  }
-  
- 
-  function login_trener(){
-    require  "db_connect.php";   
-    $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
-
-    $sql="SELECT * from kwalifikacje where id=".$_SESSION["kwalifikacja"]; 
-    $result = mysqli_query($con,$sql);
-    $row=mysqli_fetch_row( $result);
-    $_SESSION['kwalifikacjaSymbol']=$row[1];
-    $_SESSION['kwalifikacjaNazwa']=$row[2];
-
-    echo "<script>window.location.replace(\"trener.php?\");</script>"; 
-    
-  }
 
   function login_uczen(){
+    */
+
     $user=$_SESSION["login"];
     require  "db_connect.php";   
     $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
@@ -124,38 +112,26 @@
 
    // echo "$row[1]: ".$row[1];
 
-   echo "<script>window.location.replace(\"egzam.php?k=". $kwalifikacja ."&s=".$_SESSION['kwalifikacjaSymbol']."\");</script>"; 
+  // echo "<script>window.location.replace(\"egzam.php?k=". $kwalifikacja ."&s=".$_SESSION['kwalifikacjaSymbol']."\");</script>"; 
 
-  }
   
-/*
 
-    $kwal=[0,0];
-    if( isset( $_POST['submit'] )){
-      if( !empty($_POST['checkArr'])){
-        $i=0;
-        foreach( $_POST['checkArr'] as $checked ){
-          $kwal[$i++]= $checked ;
-        }
-      }
-    }
-    $sql="INSERT INTO USER( login, password, kwalifikacja1, kwalifikacja2) ".
-                     "VALUES( \"".$nowy."\",\"".sha1(".$pass.")."\", $kwal[0], $kwal[1] )"; 
-                     
-    $result = mysqli_query($con,$sql);
-   
-    $sql="SELECT * from USER ";
-    echo "id, login, password, kwalifikacja1, kwalifikacja2 <br>";
-    $result = mysqli_query($con,$sql);
-    while( $row=mysqli_fetch_assoc( $result) ){
-      echo $row['id']." - ".$row['login'] . " - " . $row['password'] . " - ". $row['kwalifikacja1']." - ".$row['kwalifikacja2'] ."<br>";
+   $sql = "SELECT DISTINCT zestaw FROM `pytania` WHERE kwal=$kwal";
+
+   $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
+ 
+   $result = mysqli_query($con, $sql);
+   if( mysqli_num_rows( $result)>0 ){
+ 
+     echo "<h2>Wybierz zestaw</h2>";
+     while( $row=mysqli_fetch_assoc( $result)){
+      // echo print_r( $row );
+       echo "<a href=\"egzam.php?zestaw=" . $row["zestaw"]. "\">" .  $row["zestaw"] . "</a> <br>";
+     }
    }
-         
-  }
-  */
+ 
+
 ?>
-
-
 
 </body>
 </html>

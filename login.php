@@ -92,9 +92,16 @@
   
     $result = mysqli_query($con,$sql);
     
-    $sql="SELECT kwalifikacja1 from user where id=".$_SESSION["IDuser"]; 
-  
+    $sql="SELECT * from kwalifikacje where id=".$_SESSION["kwalifikacja"]; 
     $result = mysqli_query($con,$sql);
+    $row=mysqli_fetch_row( $result);
+    $_SESSION['kwalifikacjaSymbol']=$row[1];
+    $_SESSION['kwalifikacjaNazwa']=$row[2];
+
+
+
+
+    /*
     $tab=[0,0,0,0,0,0,0];
     $_SESSION['odpowiedzi']=$tab;
     $_SESSION['answer']=0;
@@ -120,8 +127,8 @@
     $_SESSION['kwalifikacjaSymbol']=$row[1];
 
    // echo "$row[1]: ".$row[1];
-
-   echo "<script>window.location.replace(\"egzam.php?k=". $kwalifikacja ."&s=".$_SESSION['kwalifikacjaSymbol']."\");</script>"; 
+*/
+   echo "<script>window.location.replace(\"select.php\");</script>"; 
 
   }
   

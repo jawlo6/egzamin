@@ -23,10 +23,16 @@
   $_SESSION['start_time']=time();
   $_SESSION['end_time']=time()+60*60;
 
-  $kwalifikacja=$_GET['k'];
-  $symbol=$_GET['s'];
-  $_SESSION['kwalifikacja']=$kwalifikacja;
-  $_SESSION['symbol']=$symbol;
+  $kwalifikacja=$_SESSION['kwalifikacja'];
+
+  $symbol=$_SESSION['kwalifikacjaSymbol'];
+  $zestaw=$_GET['zestaw'];
+  echo $zestaw;
+
+
+
+  
+  
   //echo "Kawalifikacja: ". $kwalifikacja . "<br>";
   //echo "sesja[login]" . $_SESSION["login"] . "<br>";
   
@@ -35,7 +41,8 @@
     if( isset($_SESSION["login"]) ){
     //losuj pytania
     
-    $sql="SELECT * from PYTANIA where kwal=$kwalifikacja"; 
+    $sql="SELECT * from PYTANIA where zestaw=\"". $zestaw."\""; 
+    echo $sql;
     $con = mysqli_connect("localhost","root","","egzamin");
 // echo $sql;
     $result = mysqli_query($con,$sql);

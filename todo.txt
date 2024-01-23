@@ -1,0 +1,1 @@
+1. Validacja wprowadzanych pytań i odpowiedzi.

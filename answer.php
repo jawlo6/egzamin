@@ -35,7 +35,7 @@ $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
 
   $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
   fwrite($myfile, $sql);
-  $link="<script>window.location.replace(\"egzam.php?k=". $kwal ."&s=".$_SESSION['symbol']."\");</script>"; 
+  $link="<script>window.location.replace(\"egzam.php?zestaw=". $_SESSION['zestaw']."\");</script>"; 
   fwrite($myfile, $dane);
   $_SESSION['odpowiedzi'][$numer-1]=$answer;
   fwrite($myfile, $_SESSION['odpowiedzi'][$numer-1]);

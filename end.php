@@ -54,11 +54,12 @@
     for( $i=0; $i<$_SESSION['QUESTIONS']; $i++){
            $q="q".$i;
            //echo "q=".$q;
-           //print_r( $_SESSION[$q] );
+           print_r( $_SESSION[$q] );
+           echo "<br>";
          // echo $_SESSION['odpowiedzi'][$i]."<br>";
            if( $_SESSION[$q][1]==$_SESSION['odpowiedzi'][$i] ){
             $wynik++;
-            
+            print_r($_SESSION['odpowiedzi']); echo "<br>";
            }
     }
     

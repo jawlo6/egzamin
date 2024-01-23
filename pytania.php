@@ -48,10 +48,14 @@ if( $row=mysqli_fetch_assoc( $result) ){
         <label for="nr">Nr pytania</label>
         <input type="number" name="nr">
       </div>  
+      <div>
+        <label for="nr">Kategoria</label>
+        <input type="number" name="kategoria">
+      </div>  
     <div class="left">
       <div class="clearleft">Pytanie:</div>
       <div class="left">
-        <textarea name="pytanie"  rows="10" cols="100" required></textarea><br>
+        <textarea name="pytanie"  rows="10" cols="100" ></textarea><br>
       </div>
       <div class="left image" >obrazek?   
         
@@ -64,7 +68,7 @@ if( $row=mysqli_fetch_assoc( $result) ){
     <div class="clearleft">
       <div class="left"> A:</div>
       <div class="left">
-        <textarea name="odp1" rows="3" cols="100" required></textarea>
+        <textarea name="odp1" rows="3" cols="100" ></textarea>
       </div>
       <div class="left image">obrazek?       
       </div>
@@ -75,7 +79,7 @@ if( $row=mysqli_fetch_assoc( $result) ){
     <div class="clearleft"> 
     <div class="left"> B:</div>
       <div class="left">
-        <textarea name="odp2" rows="3" cols="100" required> </textarea>
+        <textarea name="odp2" rows="3" cols="100" ></textarea>
       </div>
       <div class="left image">obrazek?       
       </div>
@@ -86,7 +90,7 @@ if( $row=mysqli_fetch_assoc( $result) ){
     <div class="clearleft">
     <div class="left"> C:</div>
       <div class="left">
-        <textarea name="odp3" rows="3" cols="100" required> </textarea>
+        <textarea name="odp3" rows="3" cols="100" ></textarea>
       </div>
       <div class="left image">obrazek?       
       </div>
@@ -97,7 +101,7 @@ if( $row=mysqli_fetch_assoc( $result) ){
     <div class="clearleft">
     <div class="left"> D:</div>
       <div class="left">
-        <textarea name="odp4" rows="3" cols="100" required> </textarea><br>
+        <textarea name="odp4" rows="3" cols="100" ></textarea><br>
       </div>
       <div class="left image">obrazek?       
       </div>

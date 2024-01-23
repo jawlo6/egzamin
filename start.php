@@ -10,15 +10,16 @@
 
   <form action="login.php" method="post">
     <label for="login">Podaj nick</label>
-    <input type="text" name="login" required> 
+    <input type="text" name="login" id="login" required> 
     <label for="password">Podaj hasło</label>
     <input type="password" name="password" required>
 
     <input type="submit" value="Dalej"</input>
   </form> 
   <script>
-  localStorage.removeItem("minuty");
-  localStorage.removeItem("sekundy");
+    document.getElementById("login").focus();
+    localStorage.removeItem("minuty");
+    localStorage.removeItem("sekundy");
 </script>
 
 </body>

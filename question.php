@@ -77,6 +77,7 @@
     echo "<input type=\"submit\" value=\"Zapisz odpowiedź\">";
   echo "</form>";
   echo "<p id=\"wynik\"></p>";
+  print_r($_SESSION );
 ?>
 <p id="timer"></p>
 <script>

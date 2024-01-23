@@ -52,7 +52,8 @@ CREATE TABLE `pytania` (
   `nazwaObrazka4` text DEFAULT NULL,    
   `poprawna` tinyint  DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `kwal` int
+  `kwal` int,
+  `kategoria` int
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2;
 
 

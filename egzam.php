@@ -52,9 +52,9 @@
  echo "\n pytań: ". $QUESTIONS;
 
     $question=[];  //nr pytania i odpowiedź 
-    while ($row = $result->fetch_row()){
-      array_push($question,[$row[0],$row[11],0]);
-     
+    while ($row = $result->fetch_assoc()){
+      array_push($question,[$row["id"],$row["poprawna"],0]);
+    // print_r( $row );
     }
     if($QUESTIONS>$EGZAM_QUESTIONS){ // losowanie pytań 
       shuffle( $question );
@@ -62,13 +62,24 @@
     } 
    
     $_SESSION['QUESTIONS']=$QUESTIONS;
+    if( !isset( $_SESSION['odpowiedzi'] ) ) {
+      $tab=[];
+      for( $i=0; $i<$QUESTIONS; $i++){
+        array_push($tab, 0 );     
+      }
+      $_SESSION['odpowiedzi']=$tab;
+    }
     for( $i=0; $i<$QUESTIONS; $i++){
            $q="q".$i;
-           $_SESSION[$q]=$question[$i];         
+           $_SESSION[$q]=$question[$i];   
+   //        print_r($question[$i] );     
     }
     
     $result->close();
    }
+   print_r( $_SESSION['odpowiedzi'] );
+
+   
   
       for( $i=1; $i<=$QUESTIONS; $i++ ){
         echo "<form action=\"question.php\" method=\"get\">";

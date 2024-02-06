@@ -17,7 +17,7 @@
   $kwal=$_SESSION['kwalifikacja'];
   $numer=$_SESSION['question'];
   $answer=$_POST['radio'];
-  $dane= "pytanie: $numer  odpowiedź: $answer,  ". $numer-1;
+  $dane= "pytanie: $numer  odpowiedź: $answer,  ". $numer-1 ."odp";
 
   if( !$_SESSION['odpowiedzi'][$numer-1] ){
     $_SESSION['answer']++;
@@ -34,14 +34,14 @@ $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
   mysqli_query($con,$sql); 
 
   $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-  fwrite($myfile, $sql);
-  $link="<script>window.location.replace(\"egzam.php?zestaw=". $_SESSION['zestaw']."\");</script>"; 
+  fwrite($myfile, $sql); 
   fwrite($myfile, $dane);
   $_SESSION['odpowiedzi'][$numer-1]=$answer;
   fwrite($myfile, $_SESSION['odpowiedzi'][$numer-1]);
   fclose($myfile);
  mysqli_query($con,$sql); 
- 
+
+ $link="<script>window.location.replace(\"egzam.php?zestaw=". $_SESSION['zestaw']."\");</script>"; 
  echo     $link;
  
  //print_r( $_SESSION ); 

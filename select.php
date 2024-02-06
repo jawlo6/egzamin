@@ -86,8 +86,8 @@
     $sql="SELECT kwalifikacja1 from user where id=".$_SESSION["IDuser"]; 
   
     $result = mysqli_query($con,$sql);
-    $tab=[0,0,0,0,0,0,0];
-    $_SESSION['odpowiedzi']=$tab;
+   // $tab=[0,0,0,0,0,0,0];
+  //  $_SESSION['odpowiedzi']=$tab;
     $_SESSION['answer']=0;
     $_SESSION['stoper']=0;
 

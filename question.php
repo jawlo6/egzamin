@@ -52,6 +52,7 @@
   echo "Pytanie  $numer :<br>";
 
   echo $pytanie . "<br>";
+  echo $nazwaObrazka . "<br>"; 
   if( $nazwaObrazka ){
     echo "<img src=\"img\\$nazwaObrazka\">" . "<br>";
   }

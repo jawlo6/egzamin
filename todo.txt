@@ -1,1 +1,1 @@
-1. Validacja wprowadzanych pytań i odpowiedzi.
+1. Validacja wprowadzanych pytań i odpowiedzi (m.in.ignorowanie znaczników HTML). 

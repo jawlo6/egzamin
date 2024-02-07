@@ -16,65 +16,9 @@
   session_start();
   require  "db_connect.php";      
 
+  /*
   $user=$_SESSION["login"];
   $kwal=$_SESSION["kwalifikacja"];
-
-
-
-
-/*
-//  echo "host".$host;
-  $user=$_POST['login'];
-  $pass=$_POST['password'];
-  $_SESSION["login"]=$user;
-
-//echo "user: ". $user."<br>";
-  if( isset( $_POST['login'])){ // 
-      $sql="SELECT * FROM USER 
-          WHERE login=\"".$user."\" and password=\"".sha1(".$pass.")."\""; 
-   // echo "sql: " . $sql."<br>";
-    
-    $result = mysqli_query($con,$sql);
-  //print_r( $result );
-    if( $row=mysqli_fetch_assoc( $result) ){
-      $_SESSION["IDuser"]=$row['id'];
-      $_SESSION["kwalifikacja"]=$row['kwalifikacja1'];
-      echo "typ ".$row['typ'];
-      switch( $row['typ'] ){  
-        case 1:   //admin
-          login_admin();
-          break;
-        case 2:   //trener
-          login_trener();
-          break;  
-        case 3:   //test
-          login_test();
-          break;
-        case 4: 
-          login_uczen();
-          break;  
-        default:
-          
-      }
-
-      echo  $row['id']." - ".
-            $row['login'] . " - " . 
-            $row['password'] . " - ". 
-            $row['typ'] . " - ". 
-            $row['kwalifikacja1']." - ".
-            $row['kwalifikacja2'] ."<br>";
-      
-    }else{
-      echo  "Nie ma takiego użytkownika";
-    }
-
-  }else{
-   // echo "unset $user";
-  }
-
-
-  function login_uczen(){
-    */
 
     $user=$_SESSION["login"];
     require  "db_connect.php";   
@@ -115,7 +59,12 @@
   // echo "<script>window.location.replace(\"egzam.php?k=". $kwalifikacja ."&s=".$_SESSION['kwalifikacjaSymbol']."\");</script>"; 
 
   
+*/
+  $kwal=$_GET["kwal"];
 
+  echo "<h2>Kwalifikacja</h2>";
+  echo "<p>". $_SESSION["symbol"] . " ".  $_SESSION["nazwa"];
+  
    $sql = "SELECT DISTINCT zestaw FROM `pytania` WHERE kwal=$kwal";
 
    $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
@@ -123,7 +72,7 @@
    $result = mysqli_query($con, $sql);
    if( mysqli_num_rows( $result)>0 ){
  
-     echo "<h2>Wybierz zestaw</h2>";
+     echo "<h3>Wybierz zestaw</h3>";
      while( $row=mysqli_fetch_assoc( $result)){
       // echo print_r( $row );
        echo "<a href=\"test.php?zestaw=" . $row["zestaw"]. "\">" .  $row["zestaw"] . "</a> <br>";

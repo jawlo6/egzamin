@@ -1,1 +1,2 @@
 1. Validacja wprowadzanych pytań i odpowiedzi (m.in.ignorowanie znaczników HTML). 
+2. Wybór kwalifikacji przy wpisywaniu pytań

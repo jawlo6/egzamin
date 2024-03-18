@@ -60,11 +60,22 @@
 
   
 */
+$con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );
   $kwal=$_GET["kwal"];
+  $sql="SELECT * from kwalifikacje where id=$kwal"; 
+  $result = mysqli_query($con,$sql);
+  $row=mysqli_fetch_assoc( $result);
+  //print($row);
+  $_SESSION['symbol']=$row["symbol"];
+  $_SESSION['nazwa']=$row["nazwa"];
+  
 
   echo "<h2>Kwalifikacja</h2>";
   echo "<p>". $_SESSION["symbol"] . " ".  $_SESSION["nazwa"];
   
+//  $_SESSION['kwalifikacja']= ;
+  $symbol=$_SESSION['kwalifikacjaSymbol'];
+
    $sql = "SELECT DISTINCT zestaw FROM `pytania` WHERE kwal=$kwal";
 
    $con = mysqli_connect( $host, $db_user, $db_pasword, $db_name );

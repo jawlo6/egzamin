@@ -31,16 +31,8 @@
   echo "Zestaw: ". $_SESSION['zestaw'];
 
 
-
-  
-  
-  //echo "Kawalifikacja: ". $kwalifikacja . "<br>";
-  //echo "sesja[login]" . $_SESSION["login"] . "<br>";
   
   $EGZAM_QUESTIONS=40;
-
-    if( isset($_SESSION["login"]) ){
-    //losuj pytania
     
     $sql="SELECT * from PYTANIA where zestaw=\"". $zestaw."\""; 
  //   echo $sql;
@@ -63,11 +55,14 @@
    
     $_SESSION['QUESTIONS']=$QUESTIONS;
     if( !isset( $_SESSION['odpowiedzi'] ) ) {
+      echo "inicjujemy odpowiedzi<br>";
       $tab=[];
       for( $i=0; $i<$QUESTIONS; $i++){
         array_push($tab, 0 );     
       }
       $_SESSION['odpowiedzi']=$tab;
+
+      print_r( $tab );
     }
     for( $i=0; $i<$QUESTIONS; $i++){
            $q="q".$i;
@@ -76,7 +71,7 @@
     }
     
     $result->close();
-   }
+   
    print_r( $_SESSION['odpowiedzi'] );
 
    

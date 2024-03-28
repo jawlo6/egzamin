@@ -1,0 +1,14 @@
+<a href="https://support.mozilla.org/no/questions/1365380">https://support.mozilla.org/no/questions/1365380</a>
+<script>
+// Reposition page after a hash change
+window.addEventListener('hashchange', function() {
+    if (location.hash.length > 0){
+        // Navigate to the hash
+        document.getElementById(location.hash.substr(1)).scrollIntoView();
+    } else {
+        // Go the beginning
+        document.getElementById('COMMENT1').scrollIntoView();
+        document.body.scrollIntoView();
+    }
+}, false);
+</script>

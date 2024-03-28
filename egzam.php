@@ -43,7 +43,7 @@
     //losuj pytania
     
     $sql="SELECT * from PYTANIA where zestaw=\"". $zestaw."\""; 
- //   echo $sql;
+    echo $sql;
     $con = mysqli_connect("localhost","root","","egzamin");
 // echo $sql;
     $result = mysqli_query($con,$sql);
